@@ -9,11 +9,13 @@ environment:
   sdk: ^3.6.0
 
 dependencies:
+  bottom_navbar_with_indicator: ^0.0.9
   cupertino_icons: ^1.0.8
   dots_indicator: ^4.0.1
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.0
+  flutter_launcher_icons: ^0.14.3
   flutter_native_splash: ^2.4.4
   flutter_screenutil: ^5.9.3
   shared_preferences: ^2.5.2
@@ -53,3 +55,13 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+flutter_native_splash:
+  color: "#0E333C"
+  image: images/logo.png
+  android: true
+  android_gravity: center
+  ios: true
+  android_12:
+    image: images/logo.png
+    icon_background_color: "#0E333C"
+    android_gravity: center

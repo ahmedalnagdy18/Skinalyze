@@ -1,0 +1,105 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:skinalyze/core/colors/app_colors.dart';
+import 'package:skinalyze/core/fonts/app_text.dart';
+import 'package:skinalyze/features/home/presentation/widgets/articles_body.dart';
+import 'package:skinalyze/features/home/presentation/widgets/services_body.dart';
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.primaryColor,
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 12.w),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Icon(
+                      Icons.menu,
+                      color: AppColors.secondaryColor,
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 35.r,
+                          child: Image.asset(
+                            "images/logo.png",
+                          ),
+                        ),
+                        SizedBox(width: 4.w),
+                        Text(
+                          "Skinalyze",
+                          style: AppTexts.meduimHeading.copyWith(
+                            color: AppColors.secondaryColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Icon(
+                      Icons.logout_outlined,
+                      color: AppColors.yellowColor,
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 22.h),
+              Text(
+                "Smart Ai doctor",
+                style: AppTexts.largeHeading.copyWith(
+                  color: Colors.white,
+                ),
+              ),
+              SizedBox(height: 8.h),
+              Text(
+                "Explore the app with happness",
+                style: AppTexts.smallBody.copyWith(
+                  color: Colors.white30,
+                ),
+              ),
+              SizedBox(height: 26.h),
+              Expanded(
+                child: Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      color: Colors.grey.shade200,
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(22.r),
+                        topLeft: Radius.circular(22.r),
+                      )),
+                  child: Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 22.w, vertical: 22.h),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          //Services
+                          ServicesBody(),
+                          // Articles
+                          SizedBox(height: 32.h),
+                          ArticlesBody(),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

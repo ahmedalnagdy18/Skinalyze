@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skinalyze/core/colors/app_colors.dart';
 import 'package:skinalyze/core/fonts/app_text.dart';
+import 'package:skinalyze/features/home/presentation/screens/main_app_page.dart';
 import 'package:skinalyze/features/onboarding/widgets/dots_widget.dart';
 import 'package:skinalyze/features/onboarding/widgets/onboarding_widget.dart';
 
@@ -44,17 +45,27 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   ),
                   currentPage == 2
                       ? SizedBox()
-                      : Text(
-                          "Skip",
-                          style: AppTexts.smallHeading.copyWith(
-                            color: AppColors.yellowColor,
-                            fontWeight: FontWeight.w400,
+                      : InkWell(
+                          onTap: () {
+                            Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(
+                                builder: (context) => const MainAppPage(),
+                              ),
+                              (Route<dynamic> route) => false,
+                            );
+                          },
+                          child: Text(
+                            "Skip",
+                            style: AppTexts.smallHeading.copyWith(
+                              color: AppColors.yellowColor,
+                              fontWeight: FontWeight.w400,
+                            ),
                           ),
                         ),
                 ],
               ),
               SizedBox(height: 32.h),
-              //todo: onboarding body
+              // onboarding body
               Expanded(
                 child: PageView.builder(
                   controller: pageController,
@@ -94,7 +105,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         SizedBox(
                             width: MediaQuery.of(context).orientation ==
                                     Orientation.portrait
-                                ? MediaQuery.of(context).size.width * 0.9
+                                ? 300.r
                                 : MediaQuery.of(context).size.width * 0.1,
                             child: Image.asset(onboardingList[index].image)),
                       ],
@@ -124,6 +135,14 @@ class _OnboardingPageState extends State<OnboardingPage> {
                           pageController.nextPage(
                             duration: Duration(milliseconds: 300),
                             curve: Curves.easeInOut,
+                          );
+                        }
+                        if (currentPage == 2) {
+                          Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(
+                              builder: (context) => const MainAppPage(),
+                            ),
+                            (Route<dynamic> route) => false,
                           );
                         }
                       },

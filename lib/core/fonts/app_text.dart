@@ -38,7 +38,7 @@ class AppTexts {
   );
 
   static TextStyle smallBody = TextStyle(
-    fontSize: 14.sp,
+    fontSize: 12.sp,
     color: Colors.black,
   );
 }
