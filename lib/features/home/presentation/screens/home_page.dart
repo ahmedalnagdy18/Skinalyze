@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:skinalyze/core/colors/app_colors.dart';
 import 'package:skinalyze/core/fonts/app_text.dart';
 import 'package:skinalyze/features/home/presentation/widgets/articles_body.dart';
@@ -33,18 +34,21 @@ class _HomePageState extends State<HomePage> {
                     Row(
                       children: [
                         SizedBox(
-                          width: 35.r,
+                          width: 30.r,
                           child: Image.asset(
                             "images/logo.png",
                           ),
                         ),
                         SizedBox(width: 4.w),
+                        //Emblema
                         Text(
                           "Skinalyze",
-                          style: AppTexts.meduimHeading.copyWith(
-                            color: AppColors.secondaryColor,
+                          style: GoogleFonts.quicksand(
+                            textStyle: AppTexts.meduimHeading.copyWith(
+                              color: AppColors.secondaryColor,
+                            ),
                           ),
-                        ),
+                        )
                       ],
                     ),
                     Icon(
@@ -68,7 +72,7 @@ class _HomePageState extends State<HomePage> {
                   color: Colors.white30,
                 ),
               ),
-              SizedBox(height: 26.h),
+              SizedBox(height: 40.h),
               Expanded(
                 child: Container(
                   width: double.infinity,
