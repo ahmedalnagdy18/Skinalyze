@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:skinalyze/core/colors/app_colors.dart';
 import 'package:skinalyze/core/fonts/app_text.dart';
 import 'package:skinalyze/features/home/presentation/screens/main_app_page.dart';
@@ -33,15 +34,30 @@ class _OnboardingPageState extends State<OnboardingPage> {
           padding: EdgeInsets.symmetric(horizontal: 22.w, vertical: 14.h),
           child: Column(
             children: [
-              SizedBox(height: 20.h),
+              SizedBox(height: 16.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    "Skinalyze",
-                    style: AppTexts.smallHeading.copyWith(
-                      color: AppColors.secondaryColor,
-                    ),
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 22.r,
+                        child: Image.asset(
+                          "images/logo.png",
+                        ),
+                      ),
+                      SizedBox(width: 4.w),
+                      //Emblema
+                      Text(
+                        "Skinalyze",
+                        style: GoogleFonts.quicksand(
+                          textStyle: AppTexts.smallHeading.copyWith(
+                            color: AppColors.secondaryColor,
+                            fontSize: 18.sp,
+                          ),
+                        ),
+                      )
+                    ],
                   ),
                   currentPage == 2
                       ? SizedBox()
@@ -64,7 +80,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         ),
                 ],
               ),
-              SizedBox(height: 32.h),
+              SizedBox(height: 40.h),
               // onboarding body
               Expanded(
                 child: PageView.builder(
@@ -96,8 +112,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
                             onboardingList[currentPage].title,
                             key: ValueKey<String>(
                                 onboardingList[currentPage].title),
-                            style: AppTexts.largeHeading
-                                .copyWith(color: Colors.white),
+                            style: AppTexts.largeHeading.copyWith(
+                              color: Colors.white,
+                              fontSize: 28.sp,
+                            ),
                             textAlign: TextAlign.center,
                           ),
                         ),

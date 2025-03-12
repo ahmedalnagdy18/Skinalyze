@@ -11,15 +11,15 @@ List<Onboarding> createUserOnboardingList(BuildContext context) {
   return [
     Onboarding(
       image: "images/onboarding.gif",
-      title: "The first onboarding title",
+      title: "Scan your skin with AI-powered analysis.",
     ),
     Onboarding(
       image: "images/onboarding2.gif",
-      title: "The second onboarding title",
+      title: "Get instant insights and early detection.",
     ),
     Onboarding(
       image: "images/onboarding3.gif",
-      title: "The third onboarding title",
+      title: "Take control of your skin health today.",
     ),
   ];
 }

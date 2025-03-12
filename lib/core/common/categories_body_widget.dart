@@ -5,9 +5,15 @@ import 'package:skinalyze/core/fonts/app_text.dart';
 
 class CategoriesBodyWidget extends StatelessWidget {
   const CategoriesBodyWidget(
-      {super.key, required this.appbarTitle, required this.widget});
+      {super.key,
+      required this.appbarTitle,
+      required this.widget,
+      this.centreWidget,
+      required this.arrowIcon});
   final String appbarTitle;
   final Widget widget;
+  final Widget? centreWidget;
+  final bool arrowIcon;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,14 +28,16 @@ class CategoriesBodyWidget extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  InkWell(
-                    onTap: () => Navigator.pop(context),
-                    child: Icon(
-                      Icons.arrow_back_ios_outlined,
-                      color: AppColors.yellowColor,
-                      size: 22.r,
-                    ),
-                  ),
+                  arrowIcon == true
+                      ? InkWell(
+                          onTap: () => Navigator.pop(context),
+                          child: Icon(
+                            Icons.arrow_back_ios_outlined,
+                            color: AppColors.yellowColor,
+                            size: 22.r,
+                          ),
+                        )
+                      : SizedBox(),
                   Text(
                     appbarTitle,
                     style: AppTexts.smallHeading.copyWith(
@@ -41,6 +49,7 @@ class CategoriesBodyWidget extends StatelessWidget {
               ),
             ),
             SizedBox(height: 22.h),
+            centreWidget ?? SizedBox(),
             Expanded(
               child: Container(
                 width: double.infinity,

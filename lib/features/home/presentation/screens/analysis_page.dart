@@ -7,6 +7,7 @@ class AnalysisPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CategoriesBodyWidget(
+      arrowIcon: true,
       appbarTitle: "Analysis",
       widget: Column(),
     );

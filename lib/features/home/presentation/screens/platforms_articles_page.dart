@@ -36,6 +36,7 @@ class _CollegaesArticlesPageState extends State<PlatformsArticlesPage> {
   @override
   Widget build(BuildContext context) {
     return CategoriesBodyWidget(
+      arrowIcon: true,
       appbarTitle: "Platforms Articles",
       widget: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

@@ -7,6 +7,7 @@ class VideosPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CategoriesBodyWidget(
+      arrowIcon: true,
       appbarTitle: "Videos",
       widget: Column(),
     );

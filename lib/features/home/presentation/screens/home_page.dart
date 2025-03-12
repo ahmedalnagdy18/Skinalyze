@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
                     Row(
                       children: [
                         SizedBox(
-                          width: 30.r,
+                          width: 24.r,
                           child: Image.asset(
                             "images/logo.png",
                           ),
@@ -60,15 +60,16 @@ class _HomePageState extends State<HomePage> {
               ),
               SizedBox(height: 22.h),
               Text(
-                "Smart Ai doctor",
+                "Your AI Skin Expert",
                 style: AppTexts.largeHeading.copyWith(
                   color: Colors.white,
+                  fontSize: 28.sp,
                 ),
               ),
               SizedBox(height: 8.h),
               Text(
-                "Explore the app with happness",
-                style: AppTexts.smallBody.copyWith(
+                "Your skin health, powered by AI.",
+                style: AppTexts.meduimBody.copyWith(
                   color: Colors.white30,
                 ),
               ),
