@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:skinalyze/features/home/presentation/cubtis/theme_cubit.dart';
+import 'package:skinalyze/features/home/presentation/cubtis/theme_state.dart';
 import 'package:skinalyze/features/onboarding/screens/onboarding_page.dart';
 
 void main() {
@@ -15,9 +18,17 @@ class MyApp extends StatelessWidget {
         designSize: Size(393, 831),
         minTextAdapt: true,
         builder: (context, child) {
-          return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            home: const OnboardingPage(),
+          return BlocProvider(
+            create: (context) => ThemeCubit(),
+            child: BlocBuilder<ThemeCubit, ThemeState>(
+              builder: (context, themeState) {
+                return MaterialApp(
+                  theme: themeState.themeData,
+                  debugShowCheckedModeBanner: false,
+                  home: const OnboardingPage(),
+                );
+              },
+            ),
           );
         });
   }

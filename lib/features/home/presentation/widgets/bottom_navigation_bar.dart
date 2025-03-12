@@ -14,7 +14,7 @@ class BottomNavigationBarWidget extends StatelessWidget {
       selectedIconSize: 20,
       selectedColor: AppColors.secondaryColor,
       unSelectedColor: Colors.grey.shade500,
-      backgroundColor: AppColors.primaryColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       enableLineIndicator: false,
       lineIndicatorWidth: 5,
       indicatorType: IndicatorType.top,

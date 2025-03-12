@@ -9,6 +9,10 @@ class AppColors {
   static Color yellowColor = const Color(0xffFBE186);
   static Color lightBlueColor = const Color(0xffA0B3FF);
 
+  // Dark Mode Colors
+  static Color darkPrimaryColor = const Color(0xff1A1A2E);
+  static Color darkSecondaryColor = const Color(0xffE94560);
+
   //Border colors
   static Color primaryBorder = const Color(0xFF489FD5);
   static Color secondaryBorder = const Color(0xFFF4F4F4);

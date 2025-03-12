@@ -41,21 +41,15 @@ class EventsPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Text(
-                        'Are you a member?',
-                        textAlign: TextAlign.start,
-                        style: TextStyle(
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.w800,
-                        ),
-                      ),
+                      Text('Are you a member?',
+                          textAlign: TextAlign.start,
+                          style: AppTexts.smallHeading.copyWith(
+                            fontSize: 18.sp,
+                          )),
                       Text(
                         'Join us to explore our key events.',
                         textAlign: TextAlign.start,
-                        style: TextStyle(
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.w500,
-                        ),
+                        style: AppTexts.smallBody,
                       ),
                       SizedBox(height: 12.h),
                       MaterialButton(
@@ -65,7 +59,7 @@ class EventsPage extends StatelessWidget {
                         padding: const EdgeInsets.all(0.0),
                         child: Ink(
                           decoration: BoxDecoration(
-                              color: Colors.black,
+                              color: Theme.of(context).scaffoldBackgroundColor,
                               borderRadius: BorderRadius.circular(30.0.r)),
                           child: Container(
                             constraints: BoxConstraints(
