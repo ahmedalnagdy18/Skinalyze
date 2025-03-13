@@ -56,9 +56,10 @@ class ArticlesBody extends StatelessWidget {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(12.r)),
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      height: 80,
+                      height: 45,
                       child: Image.asset(
                         articalImages[index],
                       ),

@@ -50,7 +50,7 @@ class _CollegaesArticlesPageState extends State<CollegaesArticlesPage> {
                 child: Row(
                   children: [
                     SizedBox(
-                        height: 70.r,
+                        height: 54.r,
                         child: Image.asset("images/international.png")),
                     SizedBox(width: 8.w),
                     Column(

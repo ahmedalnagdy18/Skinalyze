@@ -12,6 +12,7 @@ class ColoredButtonWidget extends StatelessWidget {
     this.icon,
     this.minWidth,
     this.minHeight,
+    this.radius,
   });
   final String text;
   final void Function()? onPressed;
@@ -20,6 +21,7 @@ class ColoredButtonWidget extends StatelessWidget {
   final Widget? icon;
   final double? minWidth;
   final double? minHeight;
+  final double? radius;
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
@@ -27,12 +29,13 @@ class ColoredButtonWidget extends StatelessWidget {
       highlightElevation: 0,
       splashColor: Colors.transparent,
       onPressed: onPressed,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6.r)),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(radius ?? 6.r)),
       padding: const EdgeInsets.all(0.0),
       child: Ink(
         decoration: BoxDecoration(
           color: buttonColor ?? AppColors.secondaryColor,
-          borderRadius: BorderRadius.circular(6.r),
+          borderRadius: BorderRadius.circular(radius ?? 6.r),
         ),
         child: Container(
           constraints: BoxConstraints(
@@ -48,8 +51,10 @@ class ColoredButtonWidget extends StatelessWidget {
                 text,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                    color: textColor ?? AppColors.primaryColor,
-                    fontSize: 14.sp),
+                  color: textColor ?? AppColors.primaryColor,
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ],
           ),

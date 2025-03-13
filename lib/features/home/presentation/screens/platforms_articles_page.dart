@@ -56,7 +56,7 @@ class _CollegaesArticlesPageState extends State<PlatformsArticlesPage> {
                 child: Row(
                   children: [
                     SizedBox(
-                        height: 70.r, child: Image.asset("images/artical.png")),
+                        height: 54.r, child: Image.asset("images/artical.png")),
                     SizedBox(width: 8.w),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,

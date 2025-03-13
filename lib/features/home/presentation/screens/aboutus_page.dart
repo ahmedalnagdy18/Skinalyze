@@ -20,9 +20,9 @@ class AboutusPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                width: 30.r,
+                width: 35.r,
                 child: Image.asset(
-                  "images/logo.png",
+                  "images/app_logo.png",
                 ),
               ),
               SizedBox(width: 4.w),

@@ -15,7 +15,7 @@ class AppColors {
 
   //Border colors
   static Color primaryBorder = const Color(0xFF489FD5);
-  static Color secondaryBorder = const Color(0xFFF4F4F4);
+  static Color secondaryBorder = const Color.fromARGB(255, 230, 229, 229);
 
   //button colors
   static Color greenButtonColor = const Color(0xFF8DB636);

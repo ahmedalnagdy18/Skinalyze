@@ -34,13 +34,12 @@ class _HomePageState extends State<HomePage> {
                     Row(
                       children: [
                         SizedBox(
-                          width: 24.r,
+                          width: 30.r,
                           child: Image.asset(
-                            "images/logo.png",
+                            "images/app_logo.png",
                           ),
                         ),
                         SizedBox(width: 4.w),
-                        //Emblema
                         Text(
                           "Skinalyze",
                           style: GoogleFonts.quicksand(

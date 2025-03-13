@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:skinalyze/core/colors/app_colors.dart';
 import 'package:skinalyze/core/fonts/app_text.dart';
-import 'package:skinalyze/features/home/presentation/screens/main_app_page.dart';
+import 'package:skinalyze/features/authentication/presentation/screens/authentication_page.dart';
 import 'package:skinalyze/features/onboarding/widgets/dots_widget.dart';
 import 'package:skinalyze/features/onboarding/widgets/onboarding_widget.dart';
 
@@ -41,13 +41,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   Row(
                     children: [
                       SizedBox(
-                        width: 22.r,
+                        width: 28.r,
                         child: Image.asset(
-                          "images/logo.png",
+                          "images/app_logo.png",
                         ),
                       ),
-                      SizedBox(width: 4.w),
-                      //Emblema
+                      SizedBox(width: 8.w),
                       Text(
                         "Skinalyze",
                         style: GoogleFonts.quicksand(
@@ -65,7 +64,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
                           onTap: () {
                             Navigator.of(context).pushAndRemoveUntil(
                               MaterialPageRoute(
-                                builder: (context) => const MainAppPage(),
+                                builder: (context) =>
+                                    const AuthenticationPage(),
                               ),
                               (Route<dynamic> route) => false,
                             );
@@ -158,7 +158,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         if (currentPage == 2) {
                           Navigator.of(context).pushAndRemoveUntil(
                             MaterialPageRoute(
-                              builder: (context) => const MainAppPage(),
+                              builder: (context) => const AuthenticationPage(),
                             ),
                             (Route<dynamic> route) => false,
                           );

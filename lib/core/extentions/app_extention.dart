@@ -17,3 +17,8 @@ void launchURL(String url) async {
     throw 'Could not launch $url';
   }
 }
+
+// Navigator.of(context).pushAndRemoveUntil(
+//          MaterialPageRoute(
+//            builder: (context) => const TimelinePage(),),
+//              (Route<dynamic> route) => false, );
