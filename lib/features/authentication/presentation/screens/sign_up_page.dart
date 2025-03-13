@@ -9,7 +9,7 @@ import 'package:skinalyze/core/common/buttons.dart';
 import 'package:skinalyze/core/extentions/app_extention.dart';
 import 'package:skinalyze/core/fonts/app_text.dart';
 import 'package:skinalyze/features/authentication/presentation/screens/login_page.dart';
-import 'package:skinalyze/features/home/presentation/screens/home_page.dart';
+import 'package:skinalyze/features/home/presentation/screens/main_app_page.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -276,7 +276,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             if (_formKey.currentState!.validate()) {
                               Navigator.of(context).pushAndRemoveUntil(
                                 MaterialPageRoute(
-                                  builder: (context) => const HomePage(),
+                                  builder: (context) => const MainAppPage(),
                                 ),
                                 (Route<dynamic> route) => false,
                               );

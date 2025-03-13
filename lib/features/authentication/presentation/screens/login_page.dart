@@ -1,3 +1,4 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,7 +9,7 @@ import 'package:skinalyze/core/common/buttons.dart';
 import 'package:skinalyze/core/extentions/app_extention.dart';
 import 'package:skinalyze/core/fonts/app_text.dart';
 import 'package:skinalyze/features/authentication/presentation/screens/sign_up_page.dart';
-import 'package:skinalyze/features/home/presentation/screens/home_page.dart';
+import 'package:skinalyze/features/home/presentation/screens/main_app_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -18,11 +19,13 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _formKey = GlobalKey<FormState>();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
 
   bool isObscuretext = true;
   bool _isButtonEnabled = false;
+  bool onceClick = false;
 
   @override
   void dispose() {
@@ -40,6 +43,7 @@ class _LoginPageState extends State<LoginPage> {
           padding: EdgeInsets.symmetric(horizontal: 16.w),
           child: SingleChildScrollView(
             child: Form(
+              key: _formKey,
               onChanged: _isEnabled,
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -95,7 +99,17 @@ class _LoginPageState extends State<LoginPage> {
                       inputFormatters: [
                         FilteringTextInputFormatter.deny(RegExp(r'\s')),
                       ],
+                      validator: (value) => EmailValidator.validate(value!)
+                          ? null
+                          : "Please enter a valid email address",
                       mycontroller: _emailController,
+                      onChanged: (value) {
+                        if (onceClick == true) {
+                          setState(() {
+                            _formKey.currentState!.validate();
+                          });
+                        }
+                      },
                     ),
                     SizedBox(height: 22.h),
                     Text(
@@ -131,12 +145,15 @@ class _LoginPageState extends State<LoginPage> {
                       radius: 12.r,
                       onPressed: _isButtonEnabled
                           ? () {
-                              Navigator.of(context).pushAndRemoveUntil(
-                                MaterialPageRoute(
-                                  builder: (context) => const HomePage(),
-                                ),
-                                (Route<dynamic> route) => false,
-                              );
+                              onceClick = true;
+                              if (_formKey.currentState!.validate()) {
+                                Navigator.of(context).pushAndRemoveUntil(
+                                  MaterialPageRoute(
+                                    builder: (context) => const MainAppPage(),
+                                  ),
+                                  (Route<dynamic> route) => false,
+                                );
+                              }
                             }
                           : null,
                       text: "Login",
