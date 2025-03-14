@@ -16,7 +16,7 @@ class AuthenticationPage extends StatelessWidget {
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 22.w),
+          padding: EdgeInsets.symmetric(horizontal: 22.w, vertical: 22.h),
           child: Column(
             children: [
               Expanded(
