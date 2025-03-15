@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyD7X2raVSCIuvWWFSlmx1z1o1NRzmcw7Fc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>774689225494</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.skinalyze</string>
+	<key>PROJECT_ID</key>
+	<string>skinalyze-1bd8a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>skinalyze-1bd8a.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:774689225494:ios:3054386b9ca8f3b2e4ae37</string>
+</dict>
+</plist>
