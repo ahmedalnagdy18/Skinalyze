@@ -198,7 +198,9 @@ class _LoginPageState extends State<_LoginPage> {
                                       }
                                     }
                                   : null,
-                              text: "Login",
+                              text: state is LoadingLoginState
+                                  ? "Loading..."
+                                  : "Login",
                               buttonColor: _isButtonEnabled
                                   ? AppColors.secondaryColor
                                   : Colors.grey,
