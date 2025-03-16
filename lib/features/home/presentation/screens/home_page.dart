@@ -1,8 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:skinalyze/core/colors/app_colors.dart';
 import 'package:skinalyze/core/fonts/app_text.dart';
+import 'package:skinalyze/core/shared_prefrances/shared_prefrances.dart';
+import 'package:skinalyze/features/authentication/presentation/screens/authentication_page.dart';
 import 'package:skinalyze/features/home/presentation/widgets/articles_body.dart';
 import 'package:skinalyze/features/home/presentation/widgets/services_body.dart';
 
@@ -50,9 +53,29 @@ class _HomePageState extends State<HomePage> {
                         )
                       ],
                     ),
-                    Icon(
-                      Icons.logout_outlined,
-                      color: AppColors.yellowColor,
+                    InkWell(
+                      onTap: () async {
+                        try {
+                          await FirebaseAuth.instance.signOut();
+                          await SharedPrefrance.instanc.setToken(false);
+                          Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(
+                              builder: (context) => const AuthenticationPage(),
+                            ),
+                            (Route<dynamic> route) => false,
+                          );
+                        } catch (e) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text("Logout failed: ${e.toString()}"),
+                            ),
+                          );
+                        }
+                      },
+                      child: Icon(
+                        Icons.logout_outlined,
+                        color: AppColors.yellowColor,
+                      ),
                     ),
                   ],
                 ),

@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:skinalyze/core/colors/app_colors.dart';
 import 'package:skinalyze/core/fonts/app_text.dart';
+import 'package:skinalyze/core/shared_prefrances/shared_prefrances.dart';
 import 'package:skinalyze/features/authentication/presentation/screens/authentication_page.dart';
 import 'package:skinalyze/features/onboarding/widgets/dots_widget.dart';
 import 'package:skinalyze/features/onboarding/widgets/onboarding_widget.dart';
@@ -61,7 +62,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   currentPage == 2
                       ? SizedBox()
                       : InkWell(
-                          onTap: () {
+                          onTap: () async {
+                            await SharedPrefrance.instanc
+                                .setOnboardingShown(true);
                             Navigator.of(context).pushAndRemoveUntil(
                               MaterialPageRoute(
                                 builder: (context) =>
@@ -148,7 +151,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       overlayColor: const WidgetStatePropertyAll(
                         Colors.transparent,
                       ),
-                      onTap: () {
+                      onTap: () async {
                         if (currentPage < onboardingList.length - 1) {
                           pageController.nextPage(
                             duration: Duration(milliseconds: 300),
@@ -156,6 +159,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
                           );
                         }
                         if (currentPage == 2) {
+                          await SharedPrefrance.instanc
+                              .setOnboardingShown(true);
                           Navigator.of(context).pushAndRemoveUntil(
                             MaterialPageRoute(
                               builder: (context) => const AuthenticationPage(),
