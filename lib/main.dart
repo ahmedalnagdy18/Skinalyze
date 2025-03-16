@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,15 +16,31 @@ import 'package:skinalyze/injection_container.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: const FirebaseOptions(
-      apiKey: "AIzaSyCkav1SH5T1LBw4Xpv5ZQc0vweViwUgJx8",
-      appId: "1:774689225494:android:60b91c6420eb1093e4ae37",
-      messagingSenderId: "774689225494",
-      projectId: "skinalyze-1bd8a",
-      storageBucket: "skinalyze-1bd8a.firebasestorage.app",
-    ),
-  );
+  try {
+    if (kIsWeb || Platform.isAndroid) {
+      await Firebase.initializeApp(
+        options: const FirebaseOptions(
+          apiKey: "AIzaSyCkav1SH5T1LBw4Xpv5ZQc0vweViwUgJx8",
+          appId: "1:774689225494:android:60b91c6420eb1093e4ae37",
+          messagingSenderId: "774689225494",
+          projectId: "skinalyze-1bd8a",
+          storageBucket: "skinalyze-1bd8a.firebasestorage.app",
+        ),
+      );
+    } else {
+      await Firebase.initializeApp(
+        options: const FirebaseOptions(
+          apiKey: "AIzaSyD7X2raVSCIuvWWFSlmx1z1o1NRzmcw7Fc",
+          appId: "1:774689225494:ios:3054386b9ca8f3b2e4ae37",
+          messagingSenderId: "774689225494",
+          projectId: "skinalyze-1bd8a",
+          storageBucket: "skinalyze-1bd8a.firebasestorage.app",
+        ),
+      );
+    }
+  } catch (e) {
+    print("🔥 Firebase initialization error: $e");
+  }
   await SharedPrefrance.instanc.initialization();
 
   bool hasSeenOnboarding = SharedPrefrance.instanc.isOnboardingShown();
