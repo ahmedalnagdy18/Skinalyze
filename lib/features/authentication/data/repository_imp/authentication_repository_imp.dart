@@ -27,8 +27,11 @@ class AuthenticationRepositoryImp implements AuthenticationRepository {
   Future<UserCredential> register(SignUpInput input) async {
     try {
       final credential = await _auth.createUserWithEmailAndPassword(
-          email: ApiSignUpInput.fromInput(input).email,
-          password: ApiSignUpInput.fromInput(input).password);
+        email: ApiSignUpInput.fromInput(input).email,
+        password: ApiSignUpInput.fromInput(input).password,
+      );
+      await credential.user
+          ?.updateDisplayName(input.firstName + " ${input.lastName}");
       return credential;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {

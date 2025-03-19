@@ -29,6 +29,17 @@ class SharedPrefrance {
     return sharedPreferences.getBool("token") ?? false;
   }
 
+  Future<bool> setName(String firstName, String lastName) async {
+    await _ensureInitialized();
+    String fullName = "$firstName $lastName";
+    return await sharedPreferences.setString("name", fullName);
+  }
+
+  Future<String?> getName() async {
+    await _ensureInitialized();
+    return sharedPreferences.getString("name");
+  }
+
   Future<bool> removeFromShared({required String key}) async {
     await _ensureInitialized();
     return sharedPreferences.remove(key);

@@ -5,20 +5,24 @@ import 'package:skinalyze/core/colors/app_colors.dart';
 import 'package:skinalyze/core/fonts/app_text.dart';
 import 'package:skinalyze/features/authentication/presentation/widgets/logout_alert_dailog.dart';
 import 'package:skinalyze/features/home/presentation/widgets/articles_body.dart';
+import 'package:skinalyze/features/home/presentation/widgets/drawer_widget.dart';
 import 'package:skinalyze/features/home/presentation/widgets/services_body.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
-
+  const HomePage({super.key, required this.onTap});
+  final VoidCallback onTap;
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      drawer: DrawerWidget(),
       body: SafeArea(
         child: Center(
           child: Column(
@@ -28,9 +32,12 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Icon(
-                      Icons.menu,
-                      color: AppColors.secondaryColor,
+                    InkWell(
+                      onTap: widget.onTap,
+                      child: Icon(
+                        Icons.menu,
+                        color: AppColors.secondaryColor,
+                      ),
                     ),
                     Row(
                       children: [

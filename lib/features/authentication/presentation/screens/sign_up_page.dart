@@ -82,6 +82,7 @@ class _SignUpPageState extends State<_SignUpPage> {
         return Stack(
           children: [
             Scaffold(
+              resizeToAvoidBottomInset: true,
               backgroundColor: Colors.white,
               body: SafeArea(
                 child: Padding(

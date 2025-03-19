@@ -83,6 +83,7 @@ class _LoginPageState extends State<_LoginPage> {
         return Stack(
           children: [
             Scaffold(
+              resizeToAvoidBottomInset: true,
               backgroundColor: Colors.white,
               body: SafeArea(
                 child: Padding(
