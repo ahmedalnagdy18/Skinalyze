@@ -63,6 +63,7 @@ class CategoriesBodyWidget extends StatelessWidget {
                   padding:
                       EdgeInsets.symmetric(horizontal: 22.w, vertical: 22.h),
                   child: SingleChildScrollView(
+                    physics: BouncingScrollPhysics(),
                     child: widget,
                   ),
                 ),
