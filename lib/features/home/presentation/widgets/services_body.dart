@@ -49,11 +49,29 @@ class ServicesBody extends StatelessWidget {
           itemCount: 4,
           itemBuilder: (context, index) {
             return InkWell(
-              onTap: () => Navigator.push(
+              onTap: () {
+                Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => servicesPages[index],
-                  )),
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) =>
+                        servicesPages[index],
+                    transitionsBuilder:
+                        (context, animation, secondaryAnimation, child) {
+                      const begin = Offset(1.0, 0.0);
+                      const end = Offset.zero;
+                      const curve = Curves.easeInOut;
+
+                      var tween = Tween(begin: begin, end: end)
+                          .chain(CurveTween(curve: curve));
+
+                      return SlideTransition(
+                        position: animation.drive(tween),
+                        child: child,
+                      );
+                    },
+                  ),
+                );
+              },
               child: Container(
                 padding: EdgeInsets.all(8.r),
                 clipBehavior: Clip.antiAlias,

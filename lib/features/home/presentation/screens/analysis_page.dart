@@ -36,6 +36,7 @@ class AnalysisPage extends StatelessWidget {
           ),
           Text(
             "Upload image here",
+            style: AppTexts.regularBody,
           ),
           SizedBox(height: 18.h),
           Padding(
