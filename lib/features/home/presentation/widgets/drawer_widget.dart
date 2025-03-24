@@ -107,7 +107,7 @@ class _ListTileWidget extends StatelessWidget {
     return ListTile(
       leading: Icon(
         icon,
-        color: Colors.black,
+        color: Theme.of(context).scaffoldBackgroundColor,
         size: 24.r,
       ),
       title: Text(

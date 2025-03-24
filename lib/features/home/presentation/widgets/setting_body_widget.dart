@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:skinalyze/core/colors/app_colors.dart';
 
 class SettingBodyWidget extends StatelessWidget {
   const SettingBodyWidget({
@@ -40,7 +39,7 @@ class SettingBodyWidget extends StatelessWidget {
               ),
               child: Icon(
                 icon,
-                color: AppColors.primaryColor,
+                color: Theme.of(context).scaffoldBackgroundColor,
                 size: 24.r,
               ),
             ),
