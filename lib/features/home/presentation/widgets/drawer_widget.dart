@@ -15,6 +15,7 @@ class DrawerWidget extends StatelessWidget {
     return Drawer(
       backgroundColor: Colors.grey.shade200,
       child: ListView(
+        physics: NeverScrollableScrollPhysics(),
         padding: EdgeInsets.zero,
         children: [
           DrawerHeader(
