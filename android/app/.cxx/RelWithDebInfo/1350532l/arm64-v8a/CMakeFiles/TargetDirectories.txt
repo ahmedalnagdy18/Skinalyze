@@ -1,0 +1,2 @@
+D:/skinalyze/android/app/.cxx/RelWithDebInfo/1350532l/arm64-v8a/CMakeFiles/edit_cache.dir
+D:/skinalyze/android/app/.cxx/RelWithDebInfo/1350532l/arm64-v8a/CMakeFiles/rebuild_cache.dir

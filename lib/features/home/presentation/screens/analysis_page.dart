@@ -100,8 +100,15 @@ class _AnalysisPageState extends State<_AnalysisPage> {
                 ),
               ],
               if (uploaded == true) ...[
-                Image.file(
-                  File(picked!.path),
+                Container(
+                  constraints: BoxConstraints(
+                    maxHeight: 300.r,
+                    maxWidth: double.infinity,
+                  ),
+                  child: Image.file(
+                    File(picked!.path),
+                    fit: BoxFit.contain,
+                  ),
                 ),
                 SizedBox(height: 30.h),
                 state is UploadFileLoading
@@ -128,10 +135,22 @@ class _AnalysisPageState extends State<_AnalysisPage> {
                 if (state is UploadFileSuccess) ...[
                   if (state.response.syndrome != null &&
                       state.response.syndrome!.isNotEmpty)
-                    Text(
-                      state.response
-                          .syndrome!, // Directly display the syndrome string
-                      style: AppTexts.regularBody.copyWith(color: Colors.black),
+                    Column(
+                      children: [
+                        Text(
+                          state.response
+                              .syndrome!, // Directly display the syndrome string
+                          style: AppTexts.regularBody
+                              .copyWith(color: Colors.black),
+                        ),
+                        SizedBox(height: 20.h),
+                        InkWell(
+                            onTap: () {
+                              uploaded = false;
+                              setState(() {});
+                            },
+                            child: Icon(Icons.refresh)),
+                      ],
                     )
                   else
                     Text(
