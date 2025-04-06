@@ -121,10 +121,24 @@ class _AnalysisPageState extends State<_AnalysisPage> {
                                 uploaded = false;
                                 setState(() {});
                               },
-                              child: Icon(Icons.refresh))
+                              child: Icon(Icons.refresh)),
                         ],
                       )
                     : SizedBox(),
+                if (state is UploadFileSuccess) ...[
+                  if (state.response.syndrome != null &&
+                      state.response.syndrome!.isNotEmpty)
+                    Text(
+                      state.response
+                          .syndrome!, // Directly display the syndrome string
+                      style: AppTexts.regularBody.copyWith(color: Colors.black),
+                    )
+                  else
+                    Text(
+                      "No details found in response",
+                      style: AppTexts.regularBody.copyWith(color: Colors.red),
+                    ),
+                ]
               ],
             ],
           ),
