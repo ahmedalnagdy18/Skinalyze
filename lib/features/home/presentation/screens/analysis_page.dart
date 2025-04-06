@@ -1,12 +1,34 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:skinalyze/core/common/buttons.dart';
 import 'package:skinalyze/core/common/categories_body_widget.dart';
 import 'package:skinalyze/core/extentions/app_extention.dart';
 import 'package:skinalyze/core/fonts/app_text.dart';
+import 'package:skinalyze/features/home/presentation/cubits/upload_file_cubit/upload_file_cubit.dart';
 
-class AnalysisPage extends StatelessWidget {
+class AnalysisPage extends StatefulWidget {
   const AnalysisPage({super.key});
+
+  @override
+  State<AnalysisPage> createState() => _AnalysisPageState();
+}
+
+class _AnalysisPageState extends State<AnalysisPage> {
+  Future<void> pickAndUploadImage() async {
+    final picker = ImagePicker();
+    final picked = await picker.pickImage(source: ImageSource.gallery);
+
+    if (picked != null) {
+      final file = File(picked.path);
+      context.read<UploadFileCubit>().upload(file);
+    } else {
+      debugPrint('No image selected.');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +65,7 @@ class AnalysisPage extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 50.w),
             child: ColoredButtonWidget(
               text: "Upload",
-              onPressed: () {},
+              onPressed: pickAndUploadImage,
             ),
           )
         ],

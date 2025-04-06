@@ -1,5 +1,7 @@
-class UploadPhotoInput {
-  final String url;
+import 'dart:io';
 
-  UploadPhotoInput({required this.url});
+class UploadPhotoInput {
+  final File file;
+
+  UploadPhotoInput({required this.file});
 }

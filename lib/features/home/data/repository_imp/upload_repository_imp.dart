@@ -9,11 +9,9 @@ class UploadRepositoryImp implements UploadRepository {
   UploadRepositoryImp({required this.remoteDataSource});
 
   @override
-  Future<void> uploadPhoto(UploadPhotoInput input) async {
-    final ApiUploadFile uploadModel = ApiUploadFile();
-
+  Future<ApiUploadFile> uploadPhoto(UploadPhotoInput input) async {
     try {
-      await remoteDataSource.addPhoto(uploadModel);
+      return await remoteDataSource.addPhoto(input.file);
     } catch (e) {
       rethrow;
     }

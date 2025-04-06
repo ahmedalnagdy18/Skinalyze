@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skinalyze/core/colors/app_colors.dart';
 import 'package:skinalyze/core/common/categories_body_widget.dart';
-import 'package:skinalyze/features/home/presentation/cubtis/theme_cubit.dart';
-import 'package:skinalyze/features/home/presentation/cubtis/theme_state.dart';
+import 'package:skinalyze/features/home/presentation/cubits/theme_cubit/theme_cubit.dart';
+import 'package:skinalyze/features/home/presentation/cubits/theme_cubit/theme_state.dart';
 import 'package:skinalyze/features/home/presentation/widgets/setting_body_widget.dart';
 
 class SettingPage extends StatelessWidget {
