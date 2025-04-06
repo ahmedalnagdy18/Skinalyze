@@ -11,7 +11,8 @@ part 'upload_file_state.dart';
 class UploadFileCubit extends Cubit<UploadFileState> {
   final UploadPhotoUsecase uploadPhotoUsecase;
 
-  UploadFileCubit(this.uploadPhotoUsecase) : super(UploadFileInitial());
+  UploadFileCubit({required this.uploadPhotoUsecase})
+      : super(UploadFileInitial());
 
   Future<void> upload(File file) async {
     emit(UploadFileLoading());

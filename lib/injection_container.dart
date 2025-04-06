@@ -3,6 +3,7 @@ import 'package:skinalyze/features/authentication/data/repository_imp/authentica
 import 'package:skinalyze/features/authentication/domain/repository/authentication_repository.dart';
 import 'package:skinalyze/features/authentication/domain/usecase/login_usecase.dart';
 import 'package:skinalyze/features/authentication/domain/usecase/sign_up_usecase.dart';
+import 'package:skinalyze/features/home/data/data_source/data_source.dart';
 import 'package:skinalyze/features/home/data/repository_imp/upload_repository_imp.dart';
 import 'package:skinalyze/features/home/domain/repository/repostory.dart';
 import 'package:skinalyze/features/home/domain/usecase/upload_photo_usecase.dart';
@@ -25,4 +26,6 @@ Future<void> init() async {
 
   sl.registerLazySingleton<UploadRepository>(
       () => UploadRepositoryImp(remoteDataSource: sl()));
+
+  sl.registerLazySingleton<RemoteDataSource>(() => RemoteDataSource());
 }
