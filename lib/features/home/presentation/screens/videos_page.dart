@@ -4,21 +4,23 @@ import 'package:skinalyze/core/common/categories_body_widget.dart';
 import 'package:skinalyze/core/fonts/app_text.dart';
 import 'package:skinalyze/features/home/domain/entity/video_item_entity.dart';
 import 'package:skinalyze/features/home/presentation/widgets/video_body_widget.dart';
+import 'package:skinalyze/generated/l10n.dart';
 
 class VideosPage extends StatelessWidget {
   const VideosPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final videoList = getVideoList(context);
     return CategoriesBodyWidget(
       arrowIcon: true,
-      appbarTitle: "Videos",
+      appbarTitle: S.of(context).videos,
       centreWidget: Padding(
         padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 10.h),
         child: Column(
           children: [
             Text(
-              "Explore AI with Educational Videos.",
+              S.of(context).videosPageTitle,
               style: AppTexts.meduimHeading.copyWith(
                 color: Colors.white,
               ),

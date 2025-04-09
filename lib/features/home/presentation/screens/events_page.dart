@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skinalyze/core/common/categories_body_widget.dart';
 import 'package:skinalyze/core/fonts/app_text.dart';
+import 'package:skinalyze/generated/l10n.dart';
 
 class EventsPage extends StatelessWidget {
   const EventsPage({super.key});
@@ -10,13 +11,13 @@ class EventsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CategoriesBodyWidget(
         arrowIcon: true,
-        appbarTitle: "Events",
+        appbarTitle: S.of(context).events,
         centreWidget: Padding(
           padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 10.h),
           child: Column(
             children: [
               Text(
-                "Stay Updated with Exciting Events and Community Activities",
+                S.of(context).eventsPageTitle,
                 style: AppTexts.meduimHeading.copyWith(
                   color: Colors.white,
                 ),
@@ -41,13 +42,13 @@ class EventsPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Text('Are you a member?',
+                      Text(S.of(context).areYouMember,
                           textAlign: TextAlign.start,
                           style: AppTexts.smallHeading.copyWith(
                             fontSize: 18.sp,
                           )),
                       Text(
-                        'Join us to explore our key events.',
+                        S.of(context).joinUsTo,
                         textAlign: TextAlign.start,
                         style: AppTexts.smallBody,
                       ),
@@ -68,7 +69,7 @@ class EventsPage extends StatelessWidget {
                             ),
                             alignment: Alignment.center,
                             child: Text(
-                              'Join',
+                              S.of(context).join,
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.white,

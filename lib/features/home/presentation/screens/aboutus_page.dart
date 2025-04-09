@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:skinalyze/core/colors/app_colors.dart';
 import 'package:skinalyze/core/common/categories_body_widget.dart';
 import 'package:skinalyze/core/fonts/app_text.dart';
+import 'package:skinalyze/generated/l10n.dart';
 
 class AboutusPage extends StatelessWidget {
   const AboutusPage({super.key});
@@ -12,7 +13,7 @@ class AboutusPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CategoriesBodyWidget(
       arrowIcon: true,
-      appbarTitle: "About us",
+      appbarTitle: S.of(context).aboutUs,
       widget: Column(
         children: [
           SizedBox(height: 12.h),
@@ -39,18 +40,7 @@ class AboutusPage extends StatelessWidget {
           ),
           SizedBox(height: 32.h),
           Text(
-            """Welcome to Skinalyze, your AI-powered skin health assistant.  
-Our advanced AI technology helps you analyze skin conditions with just a simple photo.  
-Get instant insights and recommendations to take better care of your skin.  
-
-✔ Snap a photo and let AI analyze your skin.  
-✔ Learn skincare tips tailored to your needs.  
-✔ Supports both **Arabic** and **English** for a better user experience.  
-✔ Enjoy a sleek **Dark Mode** for comfortable use at night.  
-✔ Stay updated with the latest dermatology research and AI advancements.  
-
-While our AI provides helpful guidance, always consult a dermatologist for medical advice.  
-Explore our app and take the first step toward healthier skin today!""",
+            S.of(context).aboutUsDescrb,
             style: AppTexts.regularBody,
             textAlign: TextAlign.start,
           ),

@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:skinalyze/core/colors/app_colors.dart';
 import 'package:skinalyze/core/fonts/app_text.dart';
 import 'package:skinalyze/features/authentication/presentation/widgets/logout_alert_dailog.dart';
+import 'package:skinalyze/generated/l10n.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});
@@ -74,12 +75,12 @@ class DrawerWidget extends StatelessWidget {
           ),
           _ListTileWidget(
             icon: Icons.home,
-            data: 'Home',
+            data: S.of(context).home,
             onTap: () => Navigator.pop(context),
           ),
           _ListTileWidget(
             icon: Icons.logout,
-            data: 'Logout',
+            data: S.of(context).logout,
             onTap: () async {
               showDialog(
                 context: context,

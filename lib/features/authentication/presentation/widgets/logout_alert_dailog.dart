@@ -7,6 +7,7 @@ import 'package:skinalyze/core/common/buttons.dart';
 import 'package:skinalyze/core/fonts/app_text.dart';
 import 'package:skinalyze/core/shared_prefrances/shared_prefrances.dart';
 import 'package:skinalyze/features/authentication/presentation/screens/authentication_page.dart';
+import 'package:skinalyze/generated/l10n.dart';
 
 class LogoutAlertDialog extends StatelessWidget {
   const LogoutAlertDialog({super.key});
@@ -42,7 +43,7 @@ class LogoutAlertDialog extends StatelessWidget {
           ),
           SizedBox(height: 20.h),
           Text(
-            "Logout",
+            S.of(context).logout,
             style: AppTexts.regularBody.copyWith(
               fontWeight: FontWeight.w700,
               fontSize: 18.sp,
@@ -51,7 +52,7 @@ class LogoutAlertDialog extends StatelessWidget {
           ),
           SizedBox(height: 6.h),
           Text(
-            "Are you sure you want to logout ?",
+            S.of(context).areYouSure,
             style: AppTexts.regularBody.copyWith(
               fontSize: 14.sp,
               color: Colors.white60,
@@ -81,7 +82,7 @@ class LogoutAlertDialog extends StatelessWidget {
                       );
                     }
                   },
-                  text: "Yes",
+                  text: S.of(context).yes,
                   textColor: Colors.white,
                   minHeight: 45.h,
                 ),
@@ -92,7 +93,7 @@ class LogoutAlertDialog extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  text: "No",
+                  text: S.of(context).no,
                   textColor: Colors.white,
                   minHeight: 45.h,
                 ),

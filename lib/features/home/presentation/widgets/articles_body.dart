@@ -5,6 +5,7 @@ import 'package:skinalyze/core/extentions/app_extention.dart';
 import 'package:skinalyze/core/fonts/app_text.dart';
 import 'package:skinalyze/features/home/presentation/screens/collegaes_articles_page.dart';
 import 'package:skinalyze/features/home/presentation/screens/platforms_articles_page.dart';
+import 'package:skinalyze/generated/l10n.dart';
 
 class ArticlesBody extends StatelessWidget {
   const ArticlesBody({super.key});
@@ -12,8 +13,8 @@ class ArticlesBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> articalTitles = [
-      "Colleges",
-      "Platforms",
+      S.of(context).colleges,
+      S.of(context).platforms,
     ];
     List<String> articalImages = [
       "images/international.png",
@@ -27,7 +28,7 @@ class ArticlesBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Articles",
+          S.of(context).articles,
           style: AppTexts.smallHeading.copyWith(
             color: AppColors.primaryColor,
           ),

@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skinalyze/core/common/buttons.dart';
 import 'package:skinalyze/core/fonts/app_text.dart';
 import 'package:skinalyze/features/authentication/presentation/screens/login_page.dart';
+import 'package:skinalyze/generated/l10n.dart';
 
 class VerifyPage extends StatelessWidget {
   const VerifyPage({super.key});
@@ -32,7 +33,7 @@ class VerifyPage extends StatelessWidget {
               ),
               SizedBox(height: 22.h),
               Text(
-                "Please verify your email adress",
+                S.of(context).pleaseVerifyEmail,
                 style: AppTexts.meduimBody.copyWith(
                   color: Colors.white,
                 ),
@@ -49,7 +50,7 @@ class VerifyPage extends StatelessWidget {
                         builder: (context) => LoginPage(),
                       ));
                 },
-                text: "Ok",
+                text: S.of(context).ok,
               ),
             ],
           ),

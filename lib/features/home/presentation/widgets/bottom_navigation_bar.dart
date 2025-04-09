@@ -1,6 +1,7 @@
 import 'package:bottom_navbar_with_indicator/bottom_navbar_with_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:skinalyze/core/colors/app_colors.dart';
+import 'package:skinalyze/generated/l10n.dart';
 
 class BottomNavigationBarWidget extends StatelessWidget {
   const BottomNavigationBarWidget(
@@ -20,12 +21,12 @@ class BottomNavigationBarWidget extends StatelessWidget {
       indicatorType: IndicatorType.top,
       customBottomBarItems: [
         CustomBottomBarItems(
-          label: "Home",
+          label: S.of(context).home,
           icon: Icons.home_max_outlined,
           isAssetsImage: false,
         ),
         CustomBottomBarItems(
-          label: "setting",
+          label: S.of(context).setting,
           icon: Icons.settings,
           isAssetsImage: false,
         ),

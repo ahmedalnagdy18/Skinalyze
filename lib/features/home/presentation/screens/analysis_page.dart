@@ -9,6 +9,7 @@ import 'package:skinalyze/core/common/categories_body_widget.dart';
 import 'package:skinalyze/core/extentions/app_extention.dart';
 import 'package:skinalyze/core/fonts/app_text.dart';
 import 'package:skinalyze/features/home/presentation/cubits/upload_file_cubit/upload_file_cubit.dart';
+import 'package:skinalyze/generated/l10n.dart';
 import 'package:skinalyze/injection_container.dart';
 
 class AnalysisPage extends StatelessWidget {
@@ -60,13 +61,13 @@ class _AnalysisPageState extends State<_AnalysisPage> {
       builder: (context, state) {
         return CategoriesBodyWidget(
           arrowIcon: true,
-          appbarTitle: "Analysis",
+          appbarTitle: S.of(context).analysis,
           centreWidget: Padding(
             padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 10.h),
             child: Column(
               children: [
                 Text(
-                  "Upload your image to make Ai to analylize it",
+                  S.of(context).uploadPageTitle,
                   style: AppTexts.meduimHeading.copyWith(
                     color: Colors.white,
                   ),
@@ -84,14 +85,14 @@ class _AnalysisPageState extends State<_AnalysisPage> {
                   child: Image.asset("images/analysis.png"),
                 ),
                 Text(
-                  "Upload image here",
+                  S.of(context).uploadImageHere,
                   style: AppTexts.regularBody,
                 ),
                 SizedBox(height: 18.h),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 50.w),
                   child: ColoredButtonWidget(
-                    text: "Upload",
+                    text: S.of(context).Upload,
                     onPressed: () {
                       pickAndUploadImage();
                       setState(() {});
@@ -119,7 +120,7 @@ class _AnalysisPageState extends State<_AnalysisPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "try agian",
+                            S.of(context).tryagian,
                             style: AppTexts.regularBody,
                           ),
                           SizedBox(width: 12.w),
@@ -154,7 +155,7 @@ class _AnalysisPageState extends State<_AnalysisPage> {
                     )
                   else
                     Text(
-                      "No details found in response",
+                      S.of(context).noDetailsInResponse,
                       style: AppTexts.regularBody.copyWith(color: Colors.red),
                     ),
                 ]

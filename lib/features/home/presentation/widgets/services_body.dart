@@ -7,6 +7,7 @@ import 'package:skinalyze/features/home/presentation/screens/aboutus_page.dart';
 import 'package:skinalyze/features/home/presentation/screens/analysis_page.dart';
 import 'package:skinalyze/features/home/presentation/screens/events_page.dart';
 import 'package:skinalyze/features/home/presentation/screens/videos_page.dart';
+import 'package:skinalyze/generated/l10n.dart';
 
 class ServicesBody extends StatelessWidget {
   const ServicesBody({super.key});
@@ -19,7 +20,12 @@ class ServicesBody extends StatelessWidget {
       "images/events.png",
       "images/aboutus.png"
     ];
-    List<String> serviceTitles = ["Analysis", "videos", "Events", "About us"];
+    List<String> serviceTitles = [
+      S.of(context).analysis,
+      S.of(context).videos,
+      S.of(context).events,
+      S.of(context).aboutUs,
+    ];
 
     List servicesPages = [
       AnalysisPage(),
@@ -31,7 +37,7 @@ class ServicesBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Services",
+          S.of(context).services,
           style: AppTexts.smallHeading.copyWith(
             color: AppColors.primaryColor,
           ),

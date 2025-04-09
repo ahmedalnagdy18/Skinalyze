@@ -5,6 +5,7 @@ import 'package:skinalyze/core/common/buttons.dart';
 import 'package:skinalyze/core/extentions/app_extention.dart';
 import 'package:skinalyze/core/fonts/app_text.dart';
 import 'package:skinalyze/core/common/categories_body_widget.dart';
+import 'package:skinalyze/generated/l10n.dart';
 
 class PlatformsArticlesPage extends StatefulWidget {
   const PlatformsArticlesPage({super.key});
@@ -14,19 +15,10 @@ class PlatformsArticlesPage extends StatefulWidget {
 }
 
 class _CollegaesArticlesPageState extends State<PlatformsArticlesPage> {
-  List<String> title = [
-    "The New York Times",
-    "CNN",
-    "The Guardian",
-    "Wikipedia"
-  ];
-  List<String> subTitle = [
-    "How AI is reshaping the future of healthcare.",
-    "The role of AI in modern medical advancements.",
-    "AI-powered diagnostics: A revolution in medicine.",
-    "Comprehensive insights on AI in healthcare.",
-  ];
-  List<String> links = [
+  late final List<String> title;
+  late final List<String> subTitle;
+
+  final List<String> links = [
     "https://www.nytimes.com/",
     "https://edition.cnn.com/",
     "https://www.theguardian.com/international",
@@ -34,10 +26,28 @@ class _CollegaesArticlesPageState extends State<PlatformsArticlesPage> {
   ];
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final s = S.of(context);
+    title = [
+      s.theNewYorkTimes,
+      s.cNN,
+      s.theGuardian,
+      s.wikipedia,
+    ];
+    subTitle = [
+      s.articlsDes1,
+      s.articlsDes2,
+      s.articlsDes3,
+      s.articlsDes4,
+    ];
+  }
+
+  @override
   Widget build(BuildContext context) {
     return CategoriesBodyWidget(
       arrowIcon: true,
-      appbarTitle: "Platforms Articles",
+      appbarTitle: S.of(context).platformsArticles,
       widget: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -95,7 +105,7 @@ class _CollegaesArticlesPageState extends State<PlatformsArticlesPage> {
                       ),
                       minWidth: 80.w,
                       minHeight: 30.h,
-                      text: "View",
+                      text: S.of(context).view,
                       onPressed: () {
                         launchURL(links[i]);
                       },

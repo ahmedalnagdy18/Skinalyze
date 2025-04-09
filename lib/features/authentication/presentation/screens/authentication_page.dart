@@ -6,6 +6,7 @@ import 'package:skinalyze/core/common/buttons.dart';
 import 'package:skinalyze/core/fonts/app_text.dart';
 import 'package:skinalyze/features/authentication/presentation/screens/login_page.dart';
 import 'package:skinalyze/features/authentication/presentation/screens/sign_up_page.dart';
+import 'package:skinalyze/generated/l10n.dart';
 
 class AuthenticationPage extends StatelessWidget {
   const AuthenticationPage({super.key});
@@ -46,7 +47,7 @@ class AuthenticationPage extends StatelessWidget {
                     ),
                     SizedBox(height: 22.h),
                     Text(
-                      "Skinalyze uses AI to analyze your skin from a simple photo, providing instant insights and guidance for better skin health.",
+                      S.of(context).authenticationPageDescb,
                       style: AppTexts.meduimBody.copyWith(
                         color: Colors.white54,
                       ),
@@ -65,14 +66,14 @@ class AuthenticationPage extends StatelessWidget {
                         builder: (context) => SignUpPage(),
                       ));
                 },
-                text: "Sign up",
+                text: S.of(context).signUp,
               ),
               SizedBox(height: 22.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Already have an account? ",
+                    "${S.of(context).alredyHave} ",
                     style: AppTexts.meduimBody.copyWith(
                       color: Colors.white54,
                     ),
@@ -81,7 +82,7 @@ class AuthenticationPage extends StatelessWidget {
                     onTap: () => Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => const LoginPage())),
                     child: Text(
-                      " Login",
+                      " ${S.of(context).login}",
                       style: AppTexts.meduimBody.copyWith(
                         color: Colors.white,
                       ),

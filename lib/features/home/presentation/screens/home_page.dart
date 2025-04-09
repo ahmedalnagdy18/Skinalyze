@@ -7,6 +7,7 @@ import 'package:skinalyze/features/authentication/presentation/widgets/logout_al
 import 'package:skinalyze/features/home/presentation/widgets/articles_body.dart';
 import 'package:skinalyze/features/home/presentation/widgets/drawer_widget.dart';
 import 'package:skinalyze/features/home/presentation/widgets/services_body.dart';
+import 'package:skinalyze/generated/l10n.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.onTap});
@@ -75,7 +76,7 @@ class _HomePageState extends State<HomePage> {
               ),
               SizedBox(height: 22.h),
               Text(
-                "Your AI Skin Expert",
+                S.of(context).yourAiSkinExp,
                 style: AppTexts.largeHeading.copyWith(
                   color: Colors.white,
                   fontSize: 28.sp,
@@ -83,7 +84,7 @@ class _HomePageState extends State<HomePage> {
               ),
               SizedBox(height: 8.h),
               Text(
-                "Your skin health, powered by AI.",
+                S.of(context).yourSkinHealth,
                 style: AppTexts.meduimBody.copyWith(
                   color: Colors.white30,
                 ),

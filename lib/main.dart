@@ -6,21 +6,25 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skinalyze/core/shared_prefrances/shared_prefrances.dart';
 import 'package:skinalyze/features/authentication/presentation/screens/authentication_page.dart';
+import 'package:skinalyze/features/home/presentation/cubits/localization_cubit/local_cubit.dart';
+import 'package:skinalyze/features/home/presentation/cubits/localization_cubit/local_state.dart';
 import 'package:skinalyze/features/home/presentation/cubits/theme_cubit/theme_cubit.dart';
 import 'package:skinalyze/features/home/presentation/cubits/theme_cubit/theme_state.dart';
 import 'package:skinalyze/features/home/presentation/screens/main_app_page.dart';
 import 'package:skinalyze/features/onboarding/screens/onboarding_page.dart';
+import 'package:skinalyze/generated/l10n.dart';
 import 'package:skinalyze/injection_container.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown, // to prevent the landscape view
   ]);
-  WidgetsFlutterBinding.ensureInitialized();
   try {
     if (kIsWeb || Platform.isAndroid) {
       await Firebase.initializeApp(
@@ -70,18 +74,37 @@ class MyApp extends StatelessWidget {
         designSize: Size(393, 831),
         minTextAdapt: true,
         builder: (context, child) {
-          return BlocProvider(
-            create: (context) => ThemeCubit(),
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => ThemeCubit(),
+              ),
+              BlocProvider(
+                create: (context) => LocaleCubit()..getSavedLanguage(),
+              ),
+            ],
             child: BlocBuilder<ThemeCubit, ThemeState>(
               builder: (context, themeState) {
-                return MaterialApp(
-                  theme: themeState.themeData,
-                  debugShowCheckedModeBanner: false,
-                  home: hasSeenOnboarding
-                      ? (user != null && token == true)
-                          ? MainAppPage()
-                          : AuthenticationPage()
-                      : const OnboardingPage(),
+                return BlocBuilder<LocaleCubit, ChangeLocaleState>(
+                  builder: (context, state) {
+                    return MaterialApp(
+                      localizationsDelegates: const [
+                        S.delegate,
+                        GlobalMaterialLocalizations.delegate,
+                        GlobalWidgetsLocalizations.delegate,
+                        GlobalCupertinoLocalizations.delegate,
+                      ],
+                      locale: state.locale,
+                      supportedLocales: S.delegate.supportedLocales,
+                      theme: themeState.themeData,
+                      debugShowCheckedModeBanner: false,
+                      home: hasSeenOnboarding
+                          ? (user != null && token == true)
+                              ? MainAppPage()
+                              : AuthenticationPage()
+                          : const OnboardingPage(),
+                    );
+                  },
                 );
               },
             ),

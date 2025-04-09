@@ -5,6 +5,7 @@ import 'package:skinalyze/core/common/buttons.dart';
 import 'package:skinalyze/core/extentions/app_extention.dart';
 import 'package:skinalyze/core/fonts/app_text.dart';
 import 'package:skinalyze/features/home/domain/entity/video_item_entity.dart';
+import 'package:skinalyze/generated/l10n.dart';
 
 class VideoBodyWidget extends StatelessWidget {
   const VideoBodyWidget({super.key, required this.index, required this.video});
@@ -54,7 +55,7 @@ class VideoBodyWidget extends StatelessWidget {
                       style: AppTexts.smallHeading.copyWith(fontSize: 16.sp),
                     ),
                     Text(
-                      "Lesson ${index + 1} - ${video.description}",
+                      "${S.of(context).lesson} ${index + 1} - ${video.description}",
                       style: AppTexts.meduimBody.copyWith(
                         color: Colors.grey,
                         fontSize: 14.sp,
@@ -64,7 +65,7 @@ class VideoBodyWidget extends StatelessWidget {
                     SizedBox(
                       width: double.infinity,
                       child: ColoredButtonWidget(
-                        text: "Watch",
+                        text: S.of(context).watch,
                         onPressed: () {
                           launchURL(video.link);
                         },

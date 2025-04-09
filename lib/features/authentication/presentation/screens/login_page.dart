@@ -16,6 +16,7 @@ import 'package:skinalyze/features/authentication/domain/entity/login_input.dart
 import 'package:skinalyze/features/authentication/presentation/cubits/login_cubit/login_cubit.dart';
 import 'package:skinalyze/features/authentication/presentation/screens/sign_up_page.dart';
 import 'package:skinalyze/features/home/presentation/screens/main_app_page.dart';
+import 'package:skinalyze/generated/l10n.dart';
 import 'package:skinalyze/injection_container.dart';
 
 class LoginPage extends StatelessWidget {
@@ -70,7 +71,9 @@ class _LoginPageState extends State<_LoginPage> {
                 (Route<dynamic> route) => false,
               );
             } else {
-              showErrorToastMessage(message: "Please verify your email");
+              showErrorToastMessage(
+                message: S.of(context).pleaseVerifyEmail,
+              );
             }
           }
         }
@@ -122,7 +125,7 @@ class _LoginPageState extends State<_LoginPage> {
                             SizedBox(height: 22.h),
                             Center(
                               child: Text(
-                                "Login",
+                                S.of(context).login,
                                 style: GoogleFonts.josefinSans(
                                   textStyle: AppTexts.meduimHeading.copyWith(
                                     color: AppColors.primaryColor,
@@ -134,7 +137,7 @@ class _LoginPageState extends State<_LoginPage> {
                             SizedBox(height: 22.h),
                             SizedBox(height: 22.h),
                             Text(
-                              "Email",
+                              S.of(context).email,
                               style: AppTexts.regularBody.copyWith(
                                 fontWeight: FontWeight.w500,
                                 color: AppColors.primaryColor,
@@ -142,7 +145,7 @@ class _LoginPageState extends State<_LoginPage> {
                             ),
                             SizedBox(height: 8.h),
                             TextFieldWidget(
-                              hintText: "Emaill*",
+                              hintText: S.of(context).emailHint,
                               inputFormatters: [
                                 FilteringTextInputFormatter.deny(RegExp(r'\s')),
                               ],
@@ -161,7 +164,7 @@ class _LoginPageState extends State<_LoginPage> {
                             ),
                             SizedBox(height: 22.h),
                             Text(
-                              "Password",
+                              S.of(context).Password,
                               style: AppTexts.regularBody.copyWith(
                                 fontWeight: FontWeight.w500,
                                 color: AppColors.primaryColor,
@@ -170,7 +173,7 @@ class _LoginPageState extends State<_LoginPage> {
                             SizedBox(height: 8.h),
                             TextFieldWidget(
                               mycontroller: _passwordController,
-                              hintText: "Password*",
+                              hintText: S.of(context).PasswordHint,
                               suffixIcon: GestureDetector(
                                 onTap: () {
                                   setState(() {
@@ -200,8 +203,8 @@ class _LoginPageState extends State<_LoginPage> {
                                     }
                                   : null,
                               text: state is LoadingLoginState
-                                  ? "Loading..."
-                                  : "Login",
+                                  ? S.of(context).loading
+                                  : S.of(context).login,
                               buttonColor: _isButtonEnabled
                                   ? AppColors.secondaryColor
                                   : Colors.grey,
@@ -211,7 +214,7 @@ class _LoginPageState extends State<_LoginPage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  "Already have an account? ",
+                                  "${S.of(context).alredyHave} ",
                                   style: AppTexts.meduimBody.copyWith(
                                     color: AppColors.primaryColor,
                                   ),
@@ -222,7 +225,7 @@ class _LoginPageState extends State<_LoginPage> {
                                           builder: (context) =>
                                               const SignUpPage())),
                                   child: Text(
-                                    " Sign up",
+                                    " ${S.of(context).signUp}",
                                     style: AppTexts.meduimBody.copyWith(
                                       color: AppColors.primaryColor,
                                       fontWeight: FontWeight.w800,

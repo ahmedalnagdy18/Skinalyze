@@ -15,6 +15,7 @@ import 'package:skinalyze/features/authentication/domain/entity/sign_up_input.da
 import 'package:skinalyze/features/authentication/presentation/cubits/signup_cubit/signup_cubit.dart';
 import 'package:skinalyze/features/authentication/presentation/screens/login_page.dart';
 import 'package:skinalyze/features/authentication/presentation/screens/verify_page.dart';
+import 'package:skinalyze/generated/l10n.dart';
 import 'package:skinalyze/injection_container.dart';
 
 class SignUpPage extends StatelessWidget {
@@ -75,7 +76,9 @@ class _SignUpPageState extends State<_SignUpPage> {
           );
         }
         if (state is ErrorSignupState) {
-          showErrorToastMessage(message: "Error");
+          showErrorToastMessage(
+            message: S.of(context).error,
+          );
         }
       },
       builder: (context, state) {
@@ -121,7 +124,7 @@ class _SignUpPageState extends State<_SignUpPage> {
                           SizedBox(height: 22.h),
                           Center(
                             child: Text(
-                              "Create account",
+                              S.of(context).createAcc,
                               style: GoogleFonts.josefinSans(
                                 textStyle: AppTexts.meduimHeading.copyWith(
                                   color: AppColors.primaryColor,
@@ -132,7 +135,7 @@ class _SignUpPageState extends State<_SignUpPage> {
                           ),
                           SizedBox(height: 22.h),
                           Text(
-                            "Name",
+                            S.of(context).name,
                             style: AppTexts.regularBody.copyWith(
                               fontWeight: FontWeight.w500,
                               color: AppColors.primaryColor,
@@ -151,7 +154,7 @@ class _SignUpPageState extends State<_SignUpPage> {
                                   maxLength: 15,
                                   counterText: '',
                                   mycontroller: _firstNameController,
-                                  hintText: "First name*",
+                                  hintText: S.of(context).firstNameHint,
                                   validator: (value) {
                                     if (value == null ||
                                         value.isEmpty ||
@@ -185,7 +188,7 @@ class _SignUpPageState extends State<_SignUpPage> {
                                   ],
                                   maxLength: 15,
                                   counterText: '',
-                                  hintText: "Last name*",
+                                  hintText: S.of(context).lastNameHint,
                                   mycontroller: _lastNameController,
                                   validator: (value) {
                                     if (value == null ||
@@ -194,7 +197,7 @@ class _SignUpPageState extends State<_SignUpPage> {
                                       setState(() {
                                         _hasError = true;
                                       });
-                                      return "Last name must be at least 3 characters";
+                                      return S.of(context).lastNameMust;
                                     }
                                     setState(() {
                                       _hasError = false;
@@ -214,7 +217,7 @@ class _SignUpPageState extends State<_SignUpPage> {
                           ),
                           SizedBox(height: 22.h),
                           Text(
-                            "Email",
+                            S.of(context).email,
                             style: AppTexts.regularBody.copyWith(
                               fontWeight: FontWeight.w500,
                               color: AppColors.primaryColor,
@@ -230,7 +233,7 @@ class _SignUpPageState extends State<_SignUpPage> {
                                 EmailValidator.validate(value!)
                                     ? null
                                     : "Please enter a valid email address",
-                            hintText: "Email*",
+                            hintText: S.of(context).emailHint,
                             onChanged: (value) {
                               if (onceClick == true) {
                                 setState(() {
@@ -241,7 +244,7 @@ class _SignUpPageState extends State<_SignUpPage> {
                           ),
                           SizedBox(height: 22.h),
                           Text(
-                            "Password",
+                            S.of(context).Password,
                             style: AppTexts.regularBody.copyWith(
                               fontWeight: FontWeight.w500,
                               color: AppColors.primaryColor,
@@ -274,7 +277,7 @@ class _SignUpPageState extends State<_SignUpPage> {
                               return null;
                             },
                             mycontroller: _passwordController,
-                            hintText: "Password*",
+                            hintText: S.of(context).PasswordHint,
                             suffixIcon: GestureDetector(
                               onTap: () {
                                 setState(() {
@@ -297,7 +300,7 @@ class _SignUpPageState extends State<_SignUpPage> {
                           ),
                           SizedBox(height: 4.h),
                           Text(
-                            "Password must contain at least 8 characters, including one uppercase letter, one number, and one special character.",
+                            S.of(context).passwordValidation,
                             style: AppTexts.smallBody.copyWith(
                               color: errorPassword == false
                                   ? AppColors.primaryColor
@@ -317,8 +320,8 @@ class _SignUpPageState extends State<_SignUpPage> {
                                   }
                                 : null,
                             text: state is LoadingSignupState
-                                ? "Loading ..."
-                                : "Sign up",
+                                ? S.of(context).loading
+                                : S.of(context).signUp,
                             buttonColor: _isButtonEnabled
                                 ? AppColors.secondaryColor
                                 : Colors.grey,
@@ -328,7 +331,7 @@ class _SignUpPageState extends State<_SignUpPage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                "Already have an account? ",
+                                "${S.of(context).alredyHave} ",
                                 style: AppTexts.meduimBody.copyWith(
                                   color: AppColors.primaryColor,
                                 ),
@@ -339,7 +342,7 @@ class _SignUpPageState extends State<_SignUpPage> {
                                         builder: (context) =>
                                             const LoginPage())),
                                 child: Text(
-                                  " Login",
+                                  " ${S.of(context).login}",
                                   style: AppTexts.meduimBody.copyWith(
                                     color: AppColors.primaryColor,
                                     fontWeight: FontWeight.w800,
