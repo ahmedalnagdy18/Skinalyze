@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skinalyze/core/common/categories_body_widget.dart';
+import 'package:skinalyze/core/extentions/app_extention.dart';
 import 'package:skinalyze/core/fonts/app_text.dart';
 import 'package:skinalyze/generated/l10n.dart';
 
@@ -54,7 +55,9 @@ class EventsPage extends StatelessWidget {
                       ),
                       SizedBox(height: 12.h),
                       MaterialButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          launchURL("https://forms.gle/aP6Zmtgw45YoxrbL8");
+                        },
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.r)),
                         padding: const EdgeInsets.all(0.0),
